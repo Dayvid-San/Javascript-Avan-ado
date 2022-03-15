@@ -33,6 +33,8 @@ class Backend extends Dev {
 const dayvid = new Backend('Dayvid', 21, 'Javascript', 'Back-end', 'MongoDB')
 const diogo = new Frontend('Diogo', 23, 'Javascript', 'Front-end', 'ReactJS')
 
+
+
 console.log(dayvid)
 dayvid.saudacao()
 console.log(diogo)
