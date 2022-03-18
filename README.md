@@ -48,7 +48,7 @@ const umaPromessa = new Promise(()
 Vai ler o codigo uma primeira vez, deixar tudo que não foi resolvid como pendencia, depois vai ler o codigo novamente e vai executar o que ficou pendente.
 
 ### promise.all() e promise.race()
-Promise é um objeto string que fica pendurado no objeto global que conseguimos acessar metodos disponíveis como o **all()** e o **race**
+Promise é um objeto string que fica pendurado no objeto global que conseguimos acessar metodos disponíveis como o **all()** e o **race**, como pode ser visto neste <a href="https://github.com/Dayvid-San/super_JS/blob/main/promise2.js" name="promisse2">arquivo</a>
 
 ````js
 Promise.all([promise1, promise2, promise3])
