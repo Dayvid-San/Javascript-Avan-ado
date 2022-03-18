@@ -46,3 +46,20 @@ const umaPromessa = new Promise(()
 
 #### Event Loop
 Vai ler o codigo uma primeira vez, deixar tudo que não foi resolvid como pendencia, depois vai ler o codigo novamente e vai executar o que ficou pendente.
+
+### promise.all() e promise.race()
+Promise é um objeto string que fica pendurado no objeto global que conseguimos acessar metodos disponíveis como o **all()** e o **race**
+
+````js
+Promise.all([promise1, promise2, promise3])
+.then((message) => {
+    console.log(message)
+})
+
+Promise.race([promise1, promise2, promise3])
+.then((message) => {
+    console.log(message)
+})
+````
+
+No codigo apresentado, o race() vai mostrar a promise executada primeiro enquanto que o all() vai mostrar todas as promise executadas numa lista
