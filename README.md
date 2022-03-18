@@ -5,6 +5,8 @@ Caderno com anotações de aulas e de pesquisas sobre a linguagem Javascript ECM
 <ul>
     <li>
         <a href="#prototypes">Prototypes</a>
+    </li>
+    <li>
         <a href="#promisse">Promisse</a>
     </li>
 </ul>
