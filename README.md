@@ -63,3 +63,9 @@ Promise.race([promise1, promise2, promise3])
 ````
 
 No codigo apresentado, o race() vai mostrar a promise executada primeiro, como que em uma corrida, enquanto que o all() vai mostrar todas as promise executadas numa lista
+
+
+
+## Asscrono
+
+- Dá para usar o encadeamento mesmo usando o await, mas suja mais o código
