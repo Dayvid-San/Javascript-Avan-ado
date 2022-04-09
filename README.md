@@ -75,7 +75,7 @@ No codigo apresentado, o race() vai mostrar a promise executada primeiro, como q
 
 
 ## <a href="https://github.com/Dayvid-San/super_JS/blob/main/try_catch.js" name="try">Try e Catch</a>
-O try-catch funciona de maneira parecida com o then catch. Tu coloca o qe acha que pode dar erro dentro do **try**, caso ocorra realmente um erro, exibimos a mensagem através do **cacth**
+O try-catch funciona de maneira parecida com o then catch. Tu coloca o que acha que pode dar erro dentro do **try**, caso ocorra realmente um erro, exibimos a mensagem através do **cacth**
 
 ````js
 const main = () => {
