@@ -9,6 +9,9 @@ Caderno com anotações de aulas e de pesquisas sobre a linguagem Javascript ECM
     <li>
         <a href="#promisse">Promisse</a>
     </li>
+    <li>
+        <a href="#try">Tray cacth</a>
+    </li>
 </ul>
 
 
@@ -71,14 +74,13 @@ No codigo apresentado, o race() vai mostrar a promise executada primeiro, como q
 - Dá para usar o encadeamento mesmo usando o await, mas suja mais o código
 
 
-## Try e catch
+## <a href="https://github.com/Dayvid-San/super_JS/blob/main/try_catch.js" name="try">Try e Catch</a>
 O try-catch funciona de maneira parecida com o then catch. Tu coloca o qe acha que pode dar erro dentro do **try**, caso ocorra realmente um erro, exibimos a mensagem através do **cacth**
 
 ````js
 const main = () => {
     try {
         codigo
-
     }
     catch (error) {
         console.error(`deu ruim! Veja aí => \n"${error}"`)
