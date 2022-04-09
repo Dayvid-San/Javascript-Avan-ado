@@ -69,3 +69,24 @@ No codigo apresentado, o race() vai mostrar a promise executada primeiro, como q
 ## Asscrono
 
 - Dá para usar o encadeamento mesmo usando o await, mas suja mais o código
+
+
+## Try e catch
+O try-catch funciona de maneira parecida com o then catch. Tu coloca o qe acha que pode dar erro dentro do **try**, caso ocorra realmente um erro, exibimos a mensagem através do **cacth**
+
+````js
+const main = () => {
+    try {
+        codigo
+
+    }
+    catch (error) {
+        console.error(`deu ruim! Veja aí => \n"${error}"`)
+    }
+    finally {
+        console.info('Este valor sempre será mostrado')
+        console.count('teste')
+    }
+}
+````
+Para o resto do código continuar, você pode usar o **finally**
