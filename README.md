@@ -92,3 +92,19 @@ const main = () => {
 }
 ````
 Para o resto do código continuar, você pode usar o **finally**
+<br>
+Quando temos um try-catch que esteja dentro de uma função, nós lançamos o error que estiver nela através do **throw** para o catch acima, assim rastreando a origem do erro.<br>
+Também podemos forçar um erro lançando através do throw. Exemplo:
+
+````js
+try {
+    if (valor) {
+        // Aqui está forçanodo/lançando o error
+        throw new Error("Deu erro no valor")
+    }
+}
+catch (error) {
+    console.error(error);
+    throw error  
+}
+````
