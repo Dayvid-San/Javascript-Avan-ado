@@ -9,17 +9,7 @@ const funcao1 = () => {
         throw error  // Throw é quem lança o erro para o catch
     }
 }
-const funca = () => {
-    console.log('Sou a função')
-    const valor = true
-    try {
-        codigo;
-    }
-    catch (error) {
-        console.error(error);
-        throw error  // Throw é quem lança o erro para o catch
-    }
-}
+
 
 
 const funcao2 = () => {

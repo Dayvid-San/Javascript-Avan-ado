@@ -10,7 +10,10 @@ Caderno com anotações de aulas e de pesquisas sobre a linguagem Javascript ECM
         <a href="#promisse">Promisse</a>
     </li>
     <li>
-        <a href="#try">Tray cacth</a>
+        <a href="#try">Try cacth</a>
+    </li>
+    <li>
+        <a href="#special-function">Funções especiais</a>
     </li>
 </ul>
 
@@ -106,5 +109,146 @@ try {
 catch (error) {
     console.error(error);
     throw error  
+}
+````
+
+## <a href="https://github.com/Dayvid-San/super_JS/blob/main/nodePython.js" name="python">Python com NodeJS</a>
+
+
+## <div name="special-function">Funções especiais</div>
+Boas funções para guardar no arcenal. <br> <a href="https://imasters.com.br/front-end/7-funcoes-essenciais-em-javascript">Fonte</a>
+### Debounce
+- Desempenho impulsonado por eventos
+A função debounce não permitirá que um callback seja usado mais de uma vez por um determinado período de tempo. Isso é especialmente importante quando a atribuição de uma função de callback para eventos é utilizada com uma frequência de disparo.
+````js
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+````
+
+### Poll
+- Verificação do estado em intervalos
+- Util caso o evento não exista
+
+````js
+function poll(fn, callback, errback, timeout, interval) {
+    var endTime = Number(new Date()) + (timeout || 2000);
+    interval = interval || 100;
+
+    (function p() {
+            // If the condition is met, we're done! 
+            if(fn()) {
+                callback();
+            }
+            // If the condition isn't met but the timeout hasn't elapsed, go again
+            else if (Number(new Date()) < endTime) {
+                setTimeout(p, interval);
+            }
+            // Didn't match and too much time, reject!
+            else {
+                errback(new Error('timed out for ' + fn + ': ' + arguments));
+            }
+    })();
+}
+````
+
+### Once
+Garante que uma determinada função só pode ser chamada uma vez, evitanto inicialização duplicada, além de fornecer o recurso rapidamente.
+````js
+function once(fn, context) { 
+	var result;
+
+	return function() { 
+		if(fn) {
+			result = fn.apply(context || this, arguments);
+			fn = null;
+		}
+
+		return result;
+	};
+}
+````
+
+### getAbsoluteUrl
+- Obter URL absoluta
+- Não funciona se não fornecer argumentos necessários
+O elemento “burn” do href cria um objeto com a URL, fornecendo uma URL absoluta no retorno.
+````js
+var getAbsoluteUrl = (function() {
+	var a;
+
+	return function(url) {
+		if(!a) a = document.createElement('a');
+		a.href = url;
+
+		return a.href;
+	};
+})();
+````
+
+
+### isNative
+Saber se a função é nativa
+````js
+;(function() {
+
+    // Used to resolve the internal `[[Class]]` of values
+    var toString = Object.prototype.toString;
+    
+    // Used to resolve the decompiled source of functions
+    var fnToString = Function.prototype.toString;
+    
+    // Used to detect host constructors (Safari > 4; really typed array specific)
+    var reHostCtor = /^\[object .+?Constructor\]$/;
+  
+    // Compile a regexp using a common native method as a template.
+    // We chose `Object#toString` because there's a good chance it is not being mucked with.
+    var reNative = RegExp('^' +
+      // Coerce `Object#toString` to a string
+      String(toString)
+      // Escape any special regexp characters
+      .replace(/[.*+?^${}()|[\]\/\\]/g, '\\amp;')
+      // Replace mentions of `toString` with `.*?` to keep the template generic.
+      // Replace thing like `for ...` to support environments like Rhino which add extra info
+      // such as method arity.
+      .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '#039')
+    );
+    
+    function isNative(value) {
+      var type = typeof value;
+      return type == 'function'
+        // Use `Function#toString` to bypass the value's own `toString` method
+        // and avoid being faked out.
+        ? reNative.test(fnToString.call(value))
+        // Fallback to a host object check because some environments will represent
+        // things like typed arrays as DOM methods which may not conform to the
+        // normal native pattern.
+        : (value && type == 'object' && reHostCtor.test(toString.call(value))) || false;
+    }
+    
+    // export however you want
+    module.exports = isNative;
+  }());
+````
+## MatchesSelector
+- Valida se um elemento é de um determinado jogo de seletores
+````js
+function matchesSelector(el, selector) {
+	var p = Element.prototype;
+	var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) {
+		return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+	};
+	return f.call(el, selector);
 }
 ````
