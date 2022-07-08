@@ -252,3 +252,16 @@ function matchesSelector(el, selector) {
 	return f.call(el, selector);
 }
 ````
+
+# <div name="html-map">Gerando HTML com map</div>
+Vamos usar a função map no JavaScript para gerar uma tabela no HTML.<br>
+No caso de termos um array.
+````js
+let tabela = [
+            {nome: "Ricardo", nota: 10},
+            {nome: "Pedro", nota: 10},
+            {nome: "João", nota: 10},
+            {nome: "Carla", nota: 10},
+        ]
+````
+Criamos o cara que vai a tabela como uma string vazia e usamos o map para listar e substituír os elementos por um elemento correspondete

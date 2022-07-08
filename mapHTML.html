@@ -1,0 +1,17 @@
+<head>
+
+</head>
+<body>
+    
+    <script>
+        let tabela = [
+            {nome: "Ricardo", nota: 10},
+            {nome: "Pedro", nota: 10},
+            {nome: "João", nota: 10},
+            {nome: "Carla", nota: 10},
+        ]
+        let tabelaHTML = ""
+        
+        document.body.innerHTML="<table border=1>" + tabela.map( e => `<tr><td>${e.nome}</td><td>${e.nota}</td></tr>`).join("") + "</table>"
+    </script>
+</body>
