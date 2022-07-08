@@ -15,6 +15,12 @@ Caderno com anotações de aulas e de pesquisas sobre a linguagem Javascript ECM
     <li>
         <a href="#special-function">Funções especiais</a>
     </li>
+    <li>
+        <a href="#html-map">Gerando HTML com a função map</a>
+    </li>
+    <li>
+        <a href="#spread">Spread</a>
+    </li>
 </ul>
 
 
@@ -264,4 +270,17 @@ let tabela = [
             {nome: "Carla", nota: 10},
         ]
 ````
-Criamos o cara que vai a tabela como uma string vazia e usamos o map para listar e substituír os elementos por um elemento correspondete
+Criamos o cara que vai a tabela como uma string vazia e usamos o map para listar e substituír os elementos por um elemento correspondente
+
+Podermos usar o map para renderizar cada célula da tabela, substituíndo em vez de escrever diretamente. Isso fácilita em futuras automações
+````js
+ tabela.map( e => `<tr><td>${e.nome}</td><td>${e.nota}</td></tr>`).join("")
+ ````
+
+ # <div name="spread">Spread</div>
+ Se temos um array **" const x = [1,2,3]"** e queros aplicar um função em cada número desse array, usamos o operador spread que transforma arrays em () dentro do parametro.<br>
+ Por exemplo na função:
+ ````js
+ Math.max(...x)
+ ````
+ qua vai retornar o maior valor. Caso o array não fosse transformado, não seria possívei fazer essa operação
