@@ -21,6 +21,9 @@ Caderno com anotações de aulas e de pesquisas sobre a linguagem Javascript ECM
     <li>
         <a href="#spread">Spread</a>
     </li>
+    <li>
+        <a href="#atribuicaoDesconstrucao">Abribuição por Desconstrução</a>
+    </li>
 </ul>
 
 
@@ -247,7 +250,7 @@ Saber se a função é nativa
     module.exports = isNative;
   }());
 ````
-## MatchesSelector
+### MatchesSelector
 - Valida se um elemento é de um determinado jogo de seletores
 ````js
 function matchesSelector(el, selector) {
@@ -259,7 +262,7 @@ function matchesSelector(el, selector) {
 }
 ````
 
-# <div name="html-map">Gerando HTML com map</div>
+## <div name="html-map">Gerando HTML com map</div>
 Vamos usar a função map no JavaScript para gerar uma tabela no HTML.<br>
 No caso de termos um array.
 ````js
@@ -277,10 +280,31 @@ Podermos usar o map para renderizar cada célula da tabela, substituíndo em vez
  tabela.map( e => `<tr><td>${e.nome}</td><td>${e.nota}</td></tr>`).join("")
  ````
 
- # <div name="spread">Spread</div>
+ ## <div name="spread">Spread</div>
  Se temos um array **" const x = [1,2,3]"** e queros aplicar um função em cada número desse array, usamos o operador spread que transforma arrays em () dentro do parametro.<br>
  Por exemplo na função:
  ````js
  Math.max(...x)
  ````
- qua vai retornar o maior valor. Caso o array não fosse transformado, não seria possívei fazer essa operação
+ qua vai retornar o maior valor. Caso o array não fosse transformado, não seria possívei fazer essa operação.
+
+
+ 
+ ## <div name="atribuicaoDesconstrucao">Atribuição por Desconstrução de objetos literais</div>
+<a href="https://www.youtube.com/watch?v=QtDHKV3XYhc&t=166s">Fonte</a><br>
+No caso de termos o **"let ponto = {x: 10, y:15, z:20}"**, pondemos descontruír esse objeot da seguinte forma:
+````js
+let ponto = {x: 10, y:15, z:20}
+
+let {x} = ponto
+````
+Pronto! Criamos uma variável descontruído o objeto. Se dermos o **console.log** no **x**, veremos que o valor do **x** do ponto é o mesmo da variavél<br>
+Mas nós também podemos renomear desta forma: **let {x:p1} = ponto**. Agora a variável que obteve o valor de **x**, do objeto, se chama **p1**<br>
+Digamos que temos uma variável **let variavel = "y"**. Então temos uam vaiável que o valor é uma string **y**. Conseguímos extraír diretamente o x **x** do objeto usando diretamente a variável.
+````js
+let variavel = "y"
+let {[variavel]:p2} = ponto
+console.log(p2)
+// output: 15
+````
+
